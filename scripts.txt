@@ -4,7 +4,6 @@ Id int not null primary key,
 name varchar(255) not null
 );
 
-Creamos la tabla Employee
 CREATE TABLE employee(
 id int not null primary key auto_increment,
 name varchar(255),
@@ -26,3 +25,12 @@ VALUES
 ('Henry', 80000, 2),
 ('Sam', 60000, 2),
 ('Max', 90000, 1)
+
+//Escriba una consulta SQL para encontrar los empleados que tienen el salario más alto en cada uno de los departamentos.
+SELECT Department.name Department, employee.name Employee, salary Salary
+FROM employee JOIN department
+ON employee.DepartmentId = department.id
+WHERE salary IN
+(SELECT max(salary)
+ FROM employee
+ GROUP BY DepartmentId);
