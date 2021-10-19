@@ -1,0 +1,28 @@
+//Creamos las tablas
+CREATE TABLE department(
+Id int not null primary key,
+name varchar(255) not null
+);
+
+Creamos la tabla Employee
+CREATE TABLE employee(
+id int not null primary key auto_increment,
+name varchar(255),
+salary int,
+departmentId int,
+foreign key (departmentId) references department(id)
+);
+
+//Insertamos datos a las tablas
+INSERT INTO department (id, name)
+VALUES
+(1,'IT'),
+(2,'Sales')
+
+INSERT INTO employee (name, salary, departmentId)
+VALUES
+('Joe', 70000, 1),
+('Jim', 90000, 1),
+('Henry', 80000, 2),
+('Sam', 60000, 2),
+('Max', 90000, 1)
